@@ -4,7 +4,7 @@
 
 The `sud` Go package provides Single Use Dialers.
 
-A single use dialer allows injecting a pre-established `net.Conn`` into
+A single use dialer allows injecting a pre-established `net.Conn` into
 components that expect to control dialing themselves, such as `http.Transport`.
 The first dial succeeds and returns the injected connection; subsequent
 dials fail with `ErrNoConnReuse`.
