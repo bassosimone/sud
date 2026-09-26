@@ -44,7 +44,7 @@ var ErrNoConnReuse = errors.New("cannot reuse connection")
 //
 // This method signature is compatible with the [net/http] package.
 //
-// All arguments are ignored and we return the connection (once) or [ErrNoConnRuse].
+// All arguments are ignored and we return the connection (once) or [ErrNoConnReuse].
 func (sud *SingleUseDialer) DialContext(ctx context.Context, network string, addr string) (net.Conn, error) {
 	sud.mu.Lock()
 	defer sud.mu.Unlock()
@@ -60,7 +60,7 @@ func (sud *SingleUseDialer) DialContext(ctx context.Context, network string, add
 //
 // This method signature is compatible with the [golang.org/x/net/http2] package.
 //
-// All arguments are ignored and we return the connection (once) or [ErrNoConnRuse].
+// All arguments are ignored and we return the connection (once) or [ErrNoConnReuse].
 func (d *SingleUseDialer) DialTLSContext(
 	ctx context.Context, network, address string, cfg *tls.Config) (net.Conn, error) {
 	return d.DialContext(ctx, network, address)
